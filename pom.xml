@@ -11,6 +11,7 @@
     <modules>
         <module>springboot-web</module>
         <module>srping-java-config</module>
+        <module>springmvc-web</module>
     </modules>
 
     <parent>
