@@ -1,17 +1,30 @@
 package com.jd.jhx.mvc.interceptor;
 
+import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
+import javax.interceptor.Interceptor;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
  * Created by jihaixiao on 2016/11/27.
  */
+
 public class DemoInterceptor extends HandlerInterceptorAdapter{
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-        System.out.println("ddd===============");
-        return super.preHandle(request, response, handler);
+        long startTime = System.currentTimeMillis();
+        request.setAttribute("startTime",startTime);
+        return true;
+    }
+
+    @Override
+    public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception {
+        long startTime = (long) request.getAttribute("startTime");
+        request.removeAttribute("startTime");
+        long endTime = System.currentTimeMillis();
+        System.out.println("本次请求处理时间："+(endTime - startTime)+" ms");
+        request.setAttribute("cost",endTime - startTime);
     }
 }

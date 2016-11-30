@@ -4,9 +4,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>advice demo</title>
 </head>
 <body>
-    welcom to Spring MVC World!  ${msg}
+    ${errorMsg}
 </body>
 </html>
