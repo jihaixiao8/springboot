@@ -13,6 +13,7 @@
         <module>srping-java-config</module>
         <module>springmvc-web</module>
         <module>springmvc-domain</module>
+        <module>springboot-common</module>
     </modules>
 
     <parent>
