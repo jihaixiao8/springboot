@@ -1,5 +1,9 @@
+package com.jd.jhx.boot;
+
+import com.jd.jhx.boot.setting.AuthorSettings;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -8,8 +12,11 @@ import org.springframework.web.bind.annotation.RestController;
  */
 
 @RestController
-@EnableAutoConfiguration
+@SpringBootApplication
 public class Application {
+
+   @Autowired
+   private AuthorSettings authorSettings;
 
     @RequestMapping("/")
     public String home(){
@@ -17,7 +24,7 @@ public class Application {
             String s = "s";
             return "hello";
         } finally {
-            System.out.println("hahah");
+            System.out.println("hahah"+authorSettings.getName()+":"+authorSettings.getAge());
         }
     }
 

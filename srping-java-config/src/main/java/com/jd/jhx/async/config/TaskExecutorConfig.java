@@ -1,5 +1,6 @@
 package com.jd.jhx.async.config;
 
+import org.springframework.aop.interceptor.AsyncUncaughtExceptionHandler;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.scheduling.annotation.AsyncConfigurer;
@@ -23,5 +24,9 @@ public class TaskExecutorConfig implements AsyncConfigurer{
         taskExecutor.setQueueCapacity(30);
         taskExecutor.initialize();
         return taskExecutor;
+    }
+
+    public AsyncUncaughtExceptionHandler getAsyncUncaughtExceptionHandler() {
+        return null;
     }
 }
