@@ -1,6 +1,7 @@
 package com.jd.jhx.boot;
 
 import com.jd.jhx.boot.setting.AuthorSettings;
+import com.jd.test.service.HelloService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -17,6 +18,14 @@ public class Application {
 
    @Autowired
    private AuthorSettings authorSettings;
+
+    @Autowired
+    private HelloService helloService;
+
+    @RequestMapping("/starter")
+    public String index(){
+        return helloService.sayHello();
+    }
 
     @RequestMapping("/")
     public String home(){

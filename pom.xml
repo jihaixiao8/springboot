@@ -14,6 +14,7 @@
         <module>springmvc-web</module>
         <module>springmvc-domain</module>
         <module>springboot-common</module>
+        <module>springboot-starter-hello</module>
     </modules>
 
     <dependencies>
